@@ -1,0 +1,1 @@
+https://www.kaggle.com/models/intel/midas/tfLite/v2-1-small-lite/1?tfhub-redirect=true
