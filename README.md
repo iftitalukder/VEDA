@@ -2,12 +2,12 @@
  This blind assist system helps visually impaired users navigate safely by providing real-time audio alerts and descriptions of their surroundings. In Alert Mode, it warns about nearby objects (e.g., "Warning: a car straight ahead is too close!") every 5 seconds, ensuring timely hazard notifications. In Description Mode, it describes all visible objects (e.g., "car straight ahead, and 2 dogs 30 degree left") with the same frequency, aiding environmental awareness. Audio feedback is available in English or Bangla (keeping object names in English for clarity), while on-screen text remains in English for sighted assistants. Users can switch modes, toggle between languages, enable/disable audio, or save snapshots using simple keyboard commands, making it a practical tool for safe navigation and situational understanding.
 
 
-# Setup Guide for Object Detection Script on Raspberry Pi 4 (Xubuntu)
+# Setup Guide for Object Detection Script on Raspberry Pi 
 
-This guide explains how to set up the environment to run the object detection script on a Raspberry Pi 4 (8GB) running Xubuntu. The script uses computer vision, machine learning, and text-to-speech for real-time object detection with Bangla/English TTS support.
+This guide explains how to set up the environment to run the object detection script on a Raspberry Pi. The script uses computer vision, machine learning, and text-to-speech for real-time object detection with Bangla/English TTS support.
 
 ## Prerequisites
-- **Hardware**: Raspberry Pi 4 (8GB) with Xubuntu installed.
+- **Hardware**: Raspberry Pi.
 - **Camera**: USB webcam or Raspberry Pi Camera Module.
 - **Internet Connection**: Required for downloading dependencies and model files.
 - **Storage**: At least 10GB free space for dependencies and models.
@@ -132,11 +132,10 @@ python3 object_detection.py
   ```
 - **Slow Performance**: Reduce YOLO image size (`imgsz=320`) in the script or use a lighter model.
 
-#blind_assit.py is the main script. other script contains framewrok for different works. you can play with it.
-
-
 
 ## Notes
 - **Model Files**: Ensure `yolo11s.pt` and `midas.tflite` are in the `models/` directory relative to the script.
 - **Font Rendering**: OpenCV may not render Bangla text well. The script uses English for on-screen display, but if Bangla is needed, consider using `Pillow` for text rendering.
 - **Internet**: The `googletrans` library requires an internet connection for translations.
+
+#blind_assit.py is the main script. other script contains framewrok for different works. you can play with it.
