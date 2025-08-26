@@ -1,100 +1,88 @@
-# Blind_Assist
- This blind assist system helps visually impaired users navigate safely by providing real-time audio alerts and descriptions of their surroundings. In Alert Mode, it warns about nearby objects (e.g., "Warning: a car straight ahead is too close!"), ensuring timely hazard notifications. In Description Mode, it describes all visible objects (e.g., "car straight ahead, and 2 dogs 30 degree left") when needed, aiding environmental awareness. Audio feedback is available in English or Bangla (keeping object names in English for clarity), while on-screen text remains in English for sighted assistants. Users can switch modes, toggle between languages, enable/disable audio, or save snapshots using simple keyboard commands, making it a practical tool for safe navigation and situational understanding.
+RoboVision Lightweight Framework for Edge Device
+This Lightweight Framework is designed as a nevigation system for robot and to assist visually impaired users by providing real-time audio alerts and descriptions of their surroundings. It can be used as a guidance tool, offering features like object detection, distance estimation, and multilingual audio feedback (English and Bangla). The framework leverages computer vision, machine learning, and text-to-speech technologies, optimized for lightweight edge devices.
+Overview
+
+Purpose: Robotics nevigation and situational awareness for visually impaired users.
+Modes:
+Alert Mode: Warns about nearby hazards (e.g., "Warning: a car straight ahead is too close!").
+Description Mode: Describes all visible objects (e.g., "car straight ahead, and 2 dogs 30 degree left").
 
 
-# Setup Guide for Object Detection Script on Raspberry Pi 
+Languages: Audio feedback in English or Bangla (object names in English), with English on-screen text.
+Controls: Toggle modes, languages, audio, and save snapshots using keyboard commands.
 
-This guide explains how to set up the environment to run the object detection script on a Raspberry Pi. The script uses computer vision, machine learning, and text-to-speech for real-time object detection with Bangla/English TTS support.
+Prerequisites
 
-## Prerequisites
-- **Hardware**: Raspberry Pi.
-- **Camera**: USB webcam or Raspberry Pi Camera Module.
-- **Internet Connection**: Required for downloading dependencies and model files.
-- **Storage**: At least 10GB free space for dependencies and models.
-- **Power Supply**: Stable 5V/3A power supply to avoid performance issues.
+Hardware: RoboVision Edge Device (e.g., Raspberry Pi).
+Camera: USB webcam or compatible Camera Module.
+Internet Connection: Required for downloading dependencies and model files.
+Storage: At least 10GB free space.
+Power Supply: Stable 5V/3A power supply.
 
-## Step 1: Update System
+Installation
+Step 1: Clone the Repository
+Clone this repository to your local machine:
+git clone https://github.com/iftitalukder/RoboVision_Edge_lightweight.git
+cd RoboVision_Edge_lightweight
+
+Step 2: Update System
 Ensure your system is up-to-date:
-```bash
 sudo apt update && sudo apt upgrade -y
-```
 
-## Step 2: Install System Dependencies
-Install required system libraries for OpenCV, Pygame, and numerical operations:
-```bash
+Step 3: Install System Dependencies
+Install required libraries for OpenCV, Pygame, and numerical operations:
 sudo apt install -y python3 python3-pip libatlas-base-dev libopenjp2-7 libtiff5 libjpeg-dev libavcodec-dev libavformat-dev libswscale-dev libsdl2-dev libsdl2-mixer-dev g++ cmake
-```
 
-## Step 3: Set Up Python Environment
-The script requires Python 3.8 or higher. Xubuntu typically includes Python 3. Verify:
-```bash
+Step 4: Set Up Python Environment
+Verify Python version (requires 3.10):
 python3 --version
-```
-If Python 3.8+ is not installed, install it:
-```bash
-sudo apt install -y python3.9
-```
+
+If needed, install Python 3.10:
+sudo apt install -y python3.10
+
 Upgrade pip:
-```bash
 pip3 install --upgrade pip
-```
 
-## Step 4: Install Python Dependencies
-Clone or download the repository containing the script and `requirements.txt`. Navigate to the project directory:
-```bash
-cd /path/to/your/repository
-```
-Install Python dependencies:
-```bash
+Step 5: Install Python Dependencies
+Install dependencies from requirements.txt:
 pip3 install -r requirements.txt --index-url https://download.pytorch.org/whl/cpu
-```
-**Note**: The `--index-url` ensures PyTorch uses CPU-only wheels, suitable for Raspberry Pi.
 
-### Optional: Optimized TensorFlow
-TensorFlow can be heavy. For better performance, install an ARM-optimized wheel:
-```bash
+Note: The --index-url ensures CPU-only PyTorch wheels, suitable for edge devices.
+Optional: Optimized TensorFlow
+For better performance on raspberry pi, install an ARM-optimized TensorFlow wheel:
 pip3 install https://github.com/bitsy-ai/tensorflow-arm-bin/releases/download/v2.11.0/tensorflow-2.11.0-cp39-none-linux_aarch64.whl
-```
-This replaces the `tensorflow` installation from `requirements.txt`.
 
-## Step 5: Set Up Camera
-Ensure your camera is detected:
-```bash
+This replaces the default TensorFlow from requirements.txt.
+Step 6: Set Up Camera
+Check if the camera is detected:
 ls /dev/video*
-```
-For a Raspberry Pi Camera Module, enable it:
-```bash
+
+For a compatible Camera Module, enable it:
 sudo raspi-config
-```
+
 Select "Interface Options" > "Camera" > Enable. Reboot if required:
-```bash
 sudo reboot
-```
 
-## Step 6: Download Model Files
-The script requires two model files:
-- **YOLOv11 Model** (`yolo11s.pt`): Download from the [Ultralytics YOLOv11 releases](https://github.com/ultralytics/ultralytics/releases).
-- **MiDaS TFLite Model** (`midas.tflite`): Download from the [Intel MiDaS repository](https://github.com/isl-org/MiDaS).
+Step 7: Download Model Files
+Download required models:
 
-Create a `models/` directory in the project root:
-```bash
+YOLOv11 Model (yolo11s.pt): Ultralytics YOLOv11 releases.
+MiDaS TFLite Model (midas.tflite): Intel MiDaS repository.
+
+Create a models/ directory and place the files:
 mkdir models
-```
-Place `yolo11s.pt` and `midas.tflite` in the `models/` directory.
 
-## Step 7: Increase Swap (Optional)
-To prevent memory issues during installation or runtime, increase swap space:
-```bash
+Move yolo11s.pt and midas.tflite to the models/ directory.
+Step 8: Increase Swap (Optional)
+To avoid memory issues, increase swap space:
 sudo fallocate -l 2G /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
 echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
-```
 
-## Step 8: Verify Installation
-Create a test script (`check_deps.py`) to verify dependencies:
-```python
+Step 9: Verify Installation
+Create a test script (check_deps.py):
 import cv2
 import torch
 import numpy
@@ -104,38 +92,39 @@ from gtts import gTTS
 import pygame
 from googletrans import Translator
 print("All dependencies imported successfully!")
-```
+
 Run it:
-```bash
 python3 check_deps.py
-```
-If errors occur, revisit the relevant installation step.
 
-## Step 9: Run the Script
-Run the object detection script:
-```bash
-python3 object_detection.py
-```
-### Controls
-- `t`: Toggle between Continuous Alerts and Frame Description modes.
-- `n`: Describe the current frame (in Frame Description mode).
-- `b`: Toggle TTS language (English/Bangla).
-- `q`: Quit the program.
+Resolve any errors by revisiting the relevant step.
+Step 10: Run the Script
+Execute the main script:
+python3 robovision_edge.py
 
-## Troubleshooting
-- **Camera Not Detected**: Check `/dev/video*` and ensure the camera is enabled in `raspi-config`.
-- **Memory Errors**: Increase swap size or close other applications.
-- **TensorFlow Issues**: Use the ARM-optimized wheel or reduce model complexity.
-- **OpenCV GUI Issues**: If `cv2.imshow` fails, ensure `python3-opencv` is installed:
-  ```bash
-  sudo apt install -y python3-opencv
-  ```
-- **Slow Performance**: Reduce YOLO image size (`imgsz=320`) in the script or use a lighter model.
+Controls will be avaible on terminal while running script
+
+Learning About the Framework
+
+Code Structure: The main script (RoboVision.py) handles object detection and audio feedback. Other scripts provide framework utilities—explore them to understand components like YOLO integration or MiDaS depth estimation.
+Customization: Adjust YOLO image size (imgsz=320) or model complexity in the script for performance tuning.
+Documentation: Refer to Ultralytics YOLO and MiDaS for model details.
+Tutorials: Search for Raspberry Pi computer vision projects or text-to-speech implementations to deepen your understanding.
+
+Troubleshooting
+
+Camera Not Detected: Check /dev/video* and enable the camera in raspi-config.
+Memory Errors: Increase swap or close applications.
+TensorFlow Issues: Use the ARM-optimized wheel or simplify the model.
+OpenCV GUI Issues: Install python3-opencv:sudo apt install -y python3-opencv
 
 
-## Notes
-- **Model Files**: Ensure `yolo11s.pt` and `midas.tflite` are in the `models/` directory relative to the script.
-- **Font Rendering**: OpenCV may not render Bangla text well. The script uses English for on-screen display, but if Bangla is needed, consider using `Pillow` for text rendering.
-- **Internet**: The `googletrans` library requires an internet connection for translations.
+Slow Performance: Reduce resolution or frame rate in the script.
 
-#blind_assit.py is the main script. other script contains framewrok for different works. you can play with it.
+Notes
+
+Ensure yolo11s.pt and midas.tflite are in the models/ directory.
+OpenCV may not render Bangla text well; English is used for on-screen display.
+The googletrans library requires an internet connection.
+
+Contributing
+Feel free to fork this repository, make improvements, and submit pull requests! if you use it for research purpoose cite this respository.
