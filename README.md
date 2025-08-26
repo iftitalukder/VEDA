@@ -1,8 +1,8 @@
-##RoboVision Lightweight Framework for Edge Device
+## RoboVision Lightweight Framework for Edge Device
 This Lightweight Framework is designed as a nevigation system for robot and to assist visually impaired users by providing real-time audio alerts and descriptions of their surroundings. It can be used as a guidance tool, offering features like object detection, distance estimation, and multilingual audio feedback (English and Bangla). The framework leverages computer vision, machine learning, and text-to-speech technologies, optimized for lightweight edge devices.
 Overview
 
-##Purpose: Robotics nevigation and situational awareness for visually impaired users.
+## Purpose: Robotics nevigation and situational awareness for visually impaired users.
 Modes:
 Alert Mode: Warns about nearby hazards (e.g., "Warning: a car straight ahead is too close!").
 Description Mode: Describes all visible objects (e.g., "car straight ahead, and 2 dogs 30 degree left").
@@ -11,7 +11,7 @@ Description Mode: Describes all visible objects (e.g., "car straight ahead, and 
 Languages: Audio feedback in English or Bangla (object names in English), with English on-screen text.
 Controls: Toggle modes, languages, audio, and save snapshots using keyboard commands.
 
-##Prerequisites
+## Prerequisites
 
 Hardware: RoboVision Edge Device (e.g.any local machine, Raspberry Pi).
 Camera: USB webcam or compatible Camera Module.
@@ -19,7 +19,7 @@ Internet Connection: Required for downloading dependencies and model files.
 Storage: At least 10GB free space.
 Power Supply: Stable 5V/3A power supply.
 
-##Installation
+## Installation
 Step 1: Clone the Repository
 Clone this repository to your local machine:
 git clone https://github.com/iftitalukder/RoboVision_Edge_lightweight.git
@@ -93,7 +93,7 @@ import pygame
 from googletrans import Translator
 print("All dependencies imported successfully!")
 
-##Run it:
+## Run it:
 python3 check_deps.py
 
 Resolve any errors by revisiting the relevant step.
@@ -103,14 +103,14 @@ python3 robovision_edge.py
 
 Controls will be avaible on terminal while running script
 
-##Learning About the Framework
+## Learning About the Framework
 
 Code Structure: The main script (RoboVision.py) handles object detection and audio feedback. Other scripts provide framework utilities—explore them to understand components like YOLO integration or MiDaS depth estimation.
 Customization: Adjust YOLO image size (imgsz=320) or model complexity in the script for performance tuning.
 Documentation: Refer to Ultralytics YOLO and MiDaS for model details.
 Tutorials: Search for Raspberry Pi computer vision projects or text-to-speech implementations to deepen your understanding.
 
-##Troubleshooting
+## Troubleshooting
 
 Camera Not Detected: Check /dev/video* and enable the camera in raspi-config.
 Memory Errors: Increase swap or close applications.
@@ -118,7 +118,7 @@ TensorFlow Issues: Use the ARM-optimized wheel or simplify the model.
 OpenCV GUI Issues: Install python3-opencv:sudo apt install -y python3-opencv
 
 
-##Slow Performance: Reduce resolution or frame rate in the script.
+## Slow Performance: Reduce resolution or frame rate in the script.
 
 Notes
 
@@ -127,4 +127,4 @@ OpenCV may not render Bangla text well; English is used for on-screen display.
 The googletrans library requires an internet connection.
 
 Contributing
-##Feel free to fork this repository, make improvements, and submit pull requests! if you use it for research purpoose cite this respository.
+## Feel free to fork this repository, make improvements, and submit pull requests! if you use it for research purpoose cite this respository.
