@@ -73,6 +73,7 @@ Create a models/ directory and place the files:
 mkdir models
 
 Move yolo11s.pt and midas.tflite to the models/ directory.
+
 Step 8: Increase Swap (Optional)
 To avoid memory issues, increase swap space:
 sudo fallocate -l 2G /swapfile
@@ -83,6 +84,7 @@ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
 Step 9: Verify Installation
 Create a test script (check_deps.py):
+
 import cv2
 import torch
 import numpy
@@ -93,13 +95,14 @@ import pygame
 from googletrans import Translator
 print("All dependencies imported successfully!")
 
-## Run it:
 python3 check_deps.py
 
 Resolve any errors by revisiting the relevant step.
-Step 10: Run the Script
+
+## Run it:
+
 Execute the main script:
-python3 robovision_edge.py
+python3 RoboVision.py
 
 Controls will be avaible on terminal while running script
 
