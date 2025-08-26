@@ -102,8 +102,10 @@ Resolve any errors by revisiting the relevant step.
 ## Run it:
 
 Execute the main script:
-python RoboVision.py (for any local machine)
+
 python RoboVis_Raspberry.py (optimized for edge devices)
+
+python RoboVision.py (for any local machine)
 
 Controls will be avaible on terminal while running script
 
