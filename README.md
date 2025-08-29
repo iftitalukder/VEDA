@@ -1,15 +1,7 @@
-## KHVR Lightweight Framework for Edge Device
+## VEDA: An Optimized Edge Algorithm for Real Time Robotic Vision
 This Lightweight Framework is designed as a nevigation system for robot and to assist visually impaired users by providing real-time audio alerts and descriptions of their surroundings. It can be used as a guidance tool, offering features like object detection, distance estimation, and multilingual audio feedback (English and Bangla). The framework leverages computer vision, machine learning, and text-to-speech technologies, optimized for lightweight edge devices.
 Overview
 
-## Purpose: Robotics vision and situational awareness for visually impaired users.
-Modes:
-Alert Mode: Warns about nearby hazards (e.g., "Warning: a car straight ahead is too close!").
-Description Mode: Describes all visible objects (e.g., "car straight ahead, and 2 dogs 30 degree left").
-
-
-Languages: Audio feedback in English or Bangla (object names in English), with English on-screen text.
-Controls: Toggle modes, languages, audio, and save snapshots using keyboard commands.
 
 ## Prerequisites
 
@@ -22,8 +14,8 @@ Power Supply: Stable 5V/3A power supply.
 ## Installation
 Step 1: Clone the Repository
 Clone this repository to your local machine:
-git clone https://github.com/iftitalukder/RoboVision_Edge_lightweight.git
-cd RoboVision_Edge_lightweight
+git clone https://github.com/iftitalukder/veda.git
+cd veda
 
 Step 2: Update System
 Ensure your system is up-to-date:
@@ -103,12 +95,12 @@ Resolve any errors by revisiting the relevant step.
 
 Execute the main script:
 
-python khvr.py (optimized for edge devices)
+python veda.py (optimized for edge devices)
 
 
 Controls will be avaible on terminal while running script
 
-## Learning About the Framework
+## Learning the algorithm
 
 Read my paper to learn in depth about the framework
 
