@@ -14,7 +14,7 @@ Power Supply: Stable 5V/3A power supply.
 ## Installation
 Step 1: Clone the Repository
 Clone this repository to your local machine:
-git clone https://github.com/iftitalukder/veda.git
+git clone https://github.com/iftitalukder/VEDA.git
 cd veda
 
 Step 2: Update System
