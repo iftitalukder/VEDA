@@ -93,12 +93,8 @@ Resolve any errors by revisiting the relevant step.
 
 ## Run it:
 
-Execute the main script:
+different version with different tweaks availbe , feel free to try and contact me.
 
-python veda.py (optimized for edge devices)
-
-
-Controls will be avaible on terminal while running script
 
 ## Learning the algorithm
 
