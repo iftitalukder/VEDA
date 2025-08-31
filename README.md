@@ -117,4 +117,4 @@ OpenCV may not render Bangla text well; English is used for on-screen display.
 The googletrans library requires an internet connection.
 
 Contributing
-## Feel free to fork this repository, make improvements, and submit pull requests! if you use it for research purpoose cite this respository.
+## Feel free to fork this repository, make improvements, and submit pull requests! if you use it for research purpose cite this respository.
