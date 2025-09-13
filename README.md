@@ -1,5 +1,5 @@
 ## VEDA: An Optimized Edge Algorithm for Real Time Robotic Vision
-This Lightweight Framework is designed as a nevigation system for robot and to assist visually impaired users by providing real-time audio alerts and descriptions of their surroundings. It can be used as a guidance tool, offering features like object detection, distance estimation, and multilingual audio feedback (English and Bangla). The framework leverages computer vision, machine learning, and text-to-speech technologies, optimized for lightweight edge devices.
+This proposed system is designed as a nevigation system for robot and to assist visually impaired users by providing real-time audio alerts and descriptions of their surroundings. It can be used as a guidance tool, offering features like object detection, distance estimation, and multilingual audio feedback (English and Bangla). The framework leverages computer vision, machine learning, and text-to-speech technologies, optimized for lightweight edge devices.
 Overview
 
 
