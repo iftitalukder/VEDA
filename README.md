@@ -60,6 +60,7 @@ Download required models:
 
 YOLOv11 Model (yolo11s.pt): Ultralytics YOLOv11 releases.
 MiDaS TFLite Model (midas.tflite): Intel MiDaS repository.
+you can play with different models to try algorithm in different devices.
 
 Create a models/ directory and place the files:
 mkdir models
